@@ -3,16 +3,14 @@ import { firestore } from '~/plugins/firebase'
 
 class Event {
   constructor(data) {
-    this.id = data.id || null
-    this.title = data.title || ''
+    this.name = data.name || ''
     this.start = data.start || null
     this.end = data.end || null
   }
 
   toPlainObject() {
     return {
-      id: this.id,
-      title: this.title,
+      name: this.name,
       start: this.start,
       end: this.end
     }
