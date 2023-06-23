@@ -22,16 +22,12 @@
           :month-format="
             (timestamp) => new Date(timestamp.date).getMonth() + 1 + ' /'
           "
-          @change="getEvents"
           @click:event="showEvent"
           @click:date="openDialog"
         ></v-calendar>
 
         <v-dialog persistent max-width="500px" v-model="dialogOpen">
           <template v-slot:activator="{ on, attrs }">
-            <v-btn color="primary" dark v-bind="attrs" v-on="on">
-              Open Dialog
-            </v-btn>
           </template>
           <v-card>
             <v-card-title>
@@ -92,7 +88,12 @@ export default {
       name: "",
       start: "",
       end: "",
+      color: "blue",
+      timed: true,
     };
+  },
+  async created() {
+    this.events = await Event.getAll()
   },
   computed: {
     title() {
@@ -181,12 +182,16 @@ export default {
         name: this.name,
         start: this.start,
         end: this.end,
+        color: "blue",
+        timed: true,
       });
       await event.save();
       this.events.push(event);
       this.name = "";
       this.start = "";
       this.end = "";
+      this.color = "blue",
+      this.timed = true
     },
   },
 };
