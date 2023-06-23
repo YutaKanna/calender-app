@@ -6,13 +6,17 @@ class Event {
     this.name = data.name || ''
     this.start = data.start || null
     this.end = data.end || null
+    this.color = "blue"
+    this.timed = true
   }
 
   toPlainObject() {
     return {
       name: this.name,
       start: this.start,
-      end: this.end
+      end: this.end,
+      color: "blue",
+      timed: true,
     }
   }
 
