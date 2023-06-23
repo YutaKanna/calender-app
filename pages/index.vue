@@ -1,26 +1,18 @@
 <template>
   <div>
-    <h1>カレンダー</h1>
-    <div>
-      <input v-model="title" placeholder="タイトル" />
-      <input type="datetime-local" v-model="start" />
-      <input type="datetime-local" v-model="end" />
-      <button @click="saveEvent">イベントを保存</button>
-    </div>
-    <ul>
-      <li v-for="event in events" :key="event.id">
-        <span>{{ event.title }}</span>
-        <button @click="deleteEvent(event.id)">削除</button>
-      </li>
-    </ul>
+    <Calendar />
   </div>
 </template>
 
 <script>
 import Event from "~/models/Event";
 import firebase from "~/plugins/firebase.js";
+import Calendar from "~/components/Calendar.vue";
 
 export default {
+  components: {
+    Calendar,
+  },
   data() {
     return {
       title: "",
