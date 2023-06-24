@@ -31,7 +31,7 @@
           </template>
           <v-card>
             <v-card-title>
-              <span class="text-h5">タイトルと日時を追加</span>
+              <span class="text-h5">タイトルと日時を追加する</span>
             </v-card-title>
             <v-card-text>
               <v-container>
